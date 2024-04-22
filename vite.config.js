@@ -9,7 +9,7 @@ export default defineConfig({
 		uni(),
 		AutoImport({
 			imports: ['vue', 'uni-app'],
-		})
+		}),
 	],
 	define: {
 		'process.env.config': ENV_CONFIG,
@@ -33,11 +33,11 @@ function replaceManifest(path, value) {
 
 		if (new RegExp(`"${arr[i]}"`).test(item)) ++i
 		if (i === len) {
-			const hasComma = /,/.test(item);
+			const hasComma = /,/.test(item)
 			ManifestArr[index] = item.replace(
 				new RegExp(`"${lastItem}"[\\s\\S]*:[\\s\\S]*`),
-				`"${lastItem}": ${typeof value === 'string'? '"'+value+'"' : value}${hasComma ? ',' : ''}`
-			);
+				`"${lastItem}": ${typeof value === 'string' ? '"' + value + '"' : value}${hasComma ? ',' : ''}`
+			)
 			break
 		}
 	}

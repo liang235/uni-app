@@ -15,5 +15,5 @@ export default {
 	production: {
 		BASE_API_URL: 'http://production',
 		appid: '生产 appid',
-	}
+	},
 }

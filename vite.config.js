@@ -1,8 +1,12 @@
 import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
-import fs from 'node:fs'
 import uni from '@dcloudio/vite-plugin-uni'
 import ENV_CONFIG from './config/env.js'
+
+let BASE_API_URL = ''
+if (process.env.UNI_CUSTOM_DEFINE) {
+	BASE_API_URL = ENV_CONFIG[JSON.parse(process.env.UNI_CUSTOM_DEFINE).ENV_TYPE].BASE_API_URL
+}
 
 export default defineConfig({
 	plugins: [
@@ -14,38 +18,17 @@ export default defineConfig({
 	define: {
 		'process.env.config': ENV_CONFIG,
 	},
+	// 开发服务器选项 https://cn.vitejs.dev/config/#server-options
+	server: {
+		host: '0.0.0.0',
+		port: 8888, // 服务器端口
+		open: true, // 在服务器启动时自动在浏览器中打开应用程序
+		proxy: {
+			'/proxy': {
+				target: BASE_API_URL,
+				changeOrigin: true, // 是否跨域
+				rewrite: (path) => path.replace(/^\/proxy/, ''),
+			},
+		},
+	},
 })
-
-// 动态修改 manifest.json
-const manifestPath = `${__dirname}/manifest.json`
-let Manifest = fs.readFileSync(manifestPath, { encoding: 'utf-8' })
-
-function replaceManifest(path, value) {
-	const arr = path.split('.')
-	const len = arr.length
-	const lastItem = arr[len - 1]
-
-	let i = 0
-	let ManifestArr = Manifest.split(/\n/)
-
-	for (let index = 0; index < ManifestArr.length; index++) {
-		const item = ManifestArr[index]
-
-		if (new RegExp(`"${arr[i]}"`).test(item)) ++i
-		if (i === len) {
-			const hasComma = /,/.test(item)
-			ManifestArr[index] = item.replace(
-				new RegExp(`"${lastItem}"[\\s\\S]*:[\\s\\S]*`),
-				`"${lastItem}": ${typeof value === 'string' ? '"' + value + '"' : value}${hasComma ? ',' : ''}`
-			)
-			break
-		}
-	}
-
-	Manifest = ManifestArr.join('\n')
-}
-
-// 这是我们主要注意动态修改的地方,按自己的需求配置
-const appid = ENV_CONFIG[JSON.parse(process.env.UNI_CUSTOM_DEFINE).NODE_ENV_NAME].appid
-replaceManifest('mp-weixin.appid', appid)
-fs.writeFileSync(manifestPath, Manifest, { flag: 'w' })

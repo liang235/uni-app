@@ -42,7 +42,7 @@
 	},
 	"quickapp": {},
 	"mp-weixin": {
-		"appid": "开发 appid",
+		"appid": "",
 		"setting": {
 			"urlCheck": false
 		},

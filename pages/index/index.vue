@@ -1,5 +1,5 @@
 <template>
-	<view></view>
+    <view>pages</view>
 </template>
 
 <script setup></script>

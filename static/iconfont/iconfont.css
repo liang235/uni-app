@@ -1,0 +1,24 @@
+@font-face {
+	font-family: "iconfont";
+	src: url('iconfont.ttf?t=1714217011636') format('truetype');
+}
+
+.iconfont {
+	font-family: "iconfont" !important;
+	font-size: 16px;
+	font-style: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-tianxie:before {
+	content: "\e632";
+}
+
+.icon-chaxun:before {
+	content: "\ec4c";
+}
+
+.icon-search:before {
+	content: "\e648";
+}

@@ -1,0 +1,30 @@
+{
+  "id": "4526647",
+  "name": "市场线索",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "866512",
+      "name": "填写",
+      "font_class": "tianxie",
+      "unicode": "e632",
+      "unicode_decimal": 58930
+    },
+    {
+      "icon_id": "5961297",
+      "name": "查询",
+      "font_class": "chaxun",
+      "unicode": "ec4c",
+      "unicode_decimal": 60492
+    },
+    {
+      "icon_id": "9930898",
+      "name": "search",
+      "font_class": "search",
+      "unicode": "e648",
+      "unicode_decimal": 58952
+    }
+  ]
+}

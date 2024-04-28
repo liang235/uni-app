@@ -1,0 +1,8 @@
+// uni-app 内置组件样式
+uni-button[type='primary'] {
+    background: $uni-color-primary;
+}
+
+.uni-tabbar__label {
+    line-height: 1.5 !important;
+}

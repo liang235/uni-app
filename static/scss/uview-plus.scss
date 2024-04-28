@@ -1,0 +1,9 @@
+// Form 表单
+.u-form {
+	.u-form-item {
+		// 输入框左边的必填星号
+		.u-form-item__body__left__content__required {
+			left: -12px;
+		}
+	}
+}

@@ -2,15 +2,18 @@
 	"name": "uni-app",
 	"version": "1.0.0",
 	"scripts": {
-		"svgo": "svgo -f /static/images"
+		"svgo": "svgo -f /static/images",
+		"lint:prettier": "prettier --write .",
+		"prepare": "husky",
+		"lint:lint-staged": "lint-staged",
+		"commit": "git pull && git add -A && git-cz && git push"
 	},
 	"devDependencies": {
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.2",
+		"prettier": "^3.2.5",
 		"svgo": "^3.2.0",
 		"unplugin-auto-import": "^0.17.5"
-	},
-	"simple-git-hooks": {
-		"pre-commit": "npx lint-staged",
-		"preserveUnused": true
 	},
 	"uni-app": {
 		"scripts": {

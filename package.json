@@ -21,21 +21,13 @@
 	},
 	"uni-app": {
 		"scripts": {
-			"mp-dingtalk": {
-				"title": "钉钉小程序",
-				"env": {
-					"UNI_PLATFORM": "mp-alipay"
-				},
-				"define": {
-					"MP-DINGTALK": true
-				}
-			},
 			"h5-dev": {
 				"title": "H5 开发环境",
 				"browser": "chrome",
 				"env": {
 					"UNI_PLATFORM": "h5",
-					"ENV_TYPE": "development"
+					"ENV_TYPE": "development",
+					"UNI_BASE_URL": "http://lm.capitalwater.cn/clue"
 				},
 				"define": {
 					"CUSTOM-CONST": true
@@ -46,18 +38,20 @@
 				"browser": "chrome",
 				"env": {
 					"UNI_PLATFORM": "h5",
-					"ENV_TYPE": "test"
+					"ENV_TYPE": "test",
+					"UNI_BASE_URL": "http://lm.capitalwater.cn/clue"
 				},
 				"define": {
 					"CUSTOM-CONST": true
 				}
 			},
-			"h5-pro": {
+			"h5-prod": {
 				"title": "H5 生产环境",
 				"browser": "chrome",
 				"env": {
 					"UNI_PLATFORM": "h5",
-					"ENV_TYPE": "production"
+					"ENV_TYPE": "production",
+					"UNI_BASE_URL": "http://lm.capitalwater.cn"
 				},
 				"define": {
 					"CUSTOM-CONST": true
